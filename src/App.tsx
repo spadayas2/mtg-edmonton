@@ -5,13 +5,13 @@ import EventsPage from "./pages/Events";
 import TradingPage from "./pages/Trading";
 import StoresPage from "./pages/Stores";
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path:"/",
     element:<RootLayout/>,
