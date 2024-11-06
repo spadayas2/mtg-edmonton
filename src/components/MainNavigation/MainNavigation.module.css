@@ -1,0 +1,24 @@
+.navBarContainer{
+    display: flex;
+    gap: 1rem;
+    background-color: black;
+    justify-content: flex-end;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
+.navItem{
+    font-family: 'Protest Strike', sans-serif;
+    font-size: 2rem;
+    display:flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    padding:0.9rem;
+}
+.navItem:hover{
+    background-color: #003c62;
+    /*25537b*/
+    /*4b4ca5*/
+}

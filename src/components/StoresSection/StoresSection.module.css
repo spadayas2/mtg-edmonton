@@ -1,0 +1,15 @@
+.zoneFilterButton{
+    border-bottom: 1px solid black;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: "Protest Strike", sans-serif;
+    width:calc(65%/5);
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+
+.activeFilter{
+    background-color: black;
+    color: white;
+}

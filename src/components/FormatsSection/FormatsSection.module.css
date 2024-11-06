@@ -1,0 +1,48 @@
+.formatCard {
+  width: calc(85%/5);
+  background-color: #e0e0e0;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+}
+
+.formatCardTitle {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 200;
+}
+
+.formatCardContent {
+  padding: 2%;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.standard {
+  background-color: #4b4ca5;
+}
+
+.draft {
+  background-color: #db5856;
+}
+
+.sealed {
+  background-color: #b19cd9;
+}
+
+.commander {
+  background-color: #ff964f;
+}
+.pioneer {
+  background-color: #dfdf6d;
+}
+
+.modern {
+    background-color: rgb(75, 165, 75);
+}
+

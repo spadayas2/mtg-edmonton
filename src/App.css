@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+
+
+.button{
+    background-color: #003c62;
+    font-size: 1.6em;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 5px;
+    padding:0.5em;
+    color: white;
+    font-weight: 600;
+    border:none;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #005991;
+    transition: 0.1s linear;
+}

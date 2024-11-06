@@ -1,0 +1,29 @@
+.button{
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    padding: 1.5rem 1.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: white;
+    width:100%;
+}
+
+.website{
+    background-color: #003c62;
+}
+
+.directions{
+    background-color: #7ba77e;
+}
+
+.website:hover{
+    background-color: #005991;
+    transition: 0.1s linear;
+}
+
+.directions:hover{
+    background-color: #9fd4a3;
+    transition: 0.1s linear;
+}

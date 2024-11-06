@@ -1,0 +1,59 @@
+.standard {
+  background-color: #4b4ca5;
+}
+
+.draft {
+  background-color: #db5856;
+}
+
+.sealed {
+  background-color: #b19cd9;
+}
+
+.commander {
+  background-color: #ff964f;
+}
+
+.pioneer {
+  background-color: #dfdf6d;
+}
+
+.modern {
+  background-color: rgb(75, 165, 75);
+}
+
+.pauper {
+    background-color: rgb(233, 140, 156);
+}
+
+.all {
+  background-color: #e0e0e0;
+}
+
+.storeStandard:hover {
+  background-color: #4b4ca5;
+}
+
+.storeDraft:hover {
+  background-color: #db5856;
+}
+
+.storeSealed:hover {
+  background-color: #b19cd9;
+}
+
+.storeCommander:hover {
+  background-color: #ff964f;
+}
+
+.storePioneer:hover {
+  background-color: #dfdf6d;
+}
+
+.storeModern:hover {
+  background-color: rgb(75, 165, 75);
+}
+
+.storePauper:hover {
+    background-color: rgb(233, 140, 156);
+}

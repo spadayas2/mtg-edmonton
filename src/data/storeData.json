@@ -1,0 +1,241 @@
+[
+  {
+    "storeName": "Authentic Dungeons",
+    "websiteURL": "https://authenticdungeons.com/",
+    "address": "10041 166 St NW, Edmonton, AB T5P 4Y1",
+    "zone": "West Edmonton",
+    "phoneNumber": "(587) 200-3070",
+    "googleDirectionsURL": "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KaFaADk2IaBTMQZuSV05Fuz0&daddr=10041+166+St+NW,+Edmonton,+AB+T5P+4Y1",
+    "weeklyEvents": [
+      {
+        "day": "FRI",
+        "format": "DRAFT",
+        "description": "Friday Night Magic (FNM)"
+      }
+    ]
+  },
+  {
+    "storeName": "Gamer's Den",
+    "websiteURL": "https://www.gamersden.ca/",
+    "address": "11610 119 St NW, Edmonton, AB T5G 2X7",
+    "zone": "Central",
+    "phoneNumber": "(780) 760-4263",
+    "googleDirectionsURL": "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KQNm1J9CI6BTMcxEk_ITNpEK&daddr=11610+119+St+NW,+Edmonton,+AB+T5G+2X7",
+    "weeklyEvents": []
+  },
+  {
+    "storeName": "Red Claw Gaming",
+    "websiteURL": "https://www.redclawgaming.com/",
+    "address": "13552 Fort Rd NW, Edmonton, AB T5A 1C5",
+    "zone": "North Edmonton",
+    "phoneNumber": "(780) 757-7655",
+    "googleDirectionsURL": "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KbWn53U2I6BTMR-5-c7bv_2Q&daddr=13552+Fort+Rd+NW,+Edmonton,+AB+T5A+1C5",
+    "weeklyEvents": [
+      {
+        "day": "THU",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "FRI",
+        "format": "DRAFT",
+        "description": "Friday Night Magic (FNM)"
+      }
+    ]
+  },
+  {
+    "storeName": "Star Lotus",
+    "websiteURL": "https://www.facebook.com/starlotusgamesinc/",
+    "address": "10441 123 St NW #102, Edmonton, AB T5N 1N8",
+    "zone": "Central",
+    "phoneNumber": "(780) 488-3188",
+    "googleDirectionsURL": "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KUmshj_TI6BTMbEoZ3yLBSJ0&daddr=10441+123+St+NW+%23102,+Edmonton,+AB+T5N+1N8",
+    "weeklyEvents": [
+      {
+        "day": "FRI",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "SAT",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "SUN",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      }
+    ]
+  },
+  {
+    "storeName": "Taps Games",
+    "websiteURL": "https://tapsgames.com/",
+    "address": "2854 Calgary Trail NW, Edmonton, AB T6J 6V7",
+    "zone": "South Edmonton",
+    "phoneNumber": "(780) 705-0132",
+    "googleDirectionsURL": "https://www.google.com/maps/dir//Taps+Games/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x53a01efc28d3fd75:0x774bb4d554b871bd?sa=X&ved=1t:3061&ictx=111&cshid=1730230918504377",
+    "weeklyEvents": [
+      {
+        "day": "WED",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "THU",
+        "format": "PIONEER",
+        "description": "Pioneer MTG"
+      },
+      {
+        "day": "FRI",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "SAT",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      }
+    ]
+  },
+  {
+    "storeName": "The Time Vault",
+    "websiteURL": "https://thetimevault.ca/",
+    "address": "12227 66 St NW, Edmonton, AB T5B 1K1",
+    "zone":"North Edmonton",
+    "phoneNumber": "(780) 200-3567",
+    "googleDirectionsURL": "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KdcfWkUwI6BTMbmfPrX7FvF5&daddr=12227+66+St+NW,+Edmonton,+AB+T5B+1K1",
+    "weeklyEvents": [
+      {
+        "day": "WED",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "FRI",
+        "format": "SEALED",
+        "description": "Sealed Event"
+      }
+    ]
+  },
+  {
+    "storeName": "Top Deck Games",
+    "websiteURL": "https://topdeckgames.ca/",
+    "address": "9126 51 Ave NW, Edmonton, AB T6E 5L8",
+    "zone":"South Edmonton",
+    "phoneNumber": "(780) 200-3567",
+    "googleDirectionsURL": "https://www.google.com/maps/dir//Top+Deck+Games/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x53a019b550f681e5:0xb34c2340eab15980?sa=X&ved=1t:3061&ictx=111",
+    "weeklyEvents": [
+      {
+        "day": "THU",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      }
+    ]
+  },
+  {
+    "storeName": "Warp 1",
+    "websiteURL": "https://warpcomics.com/index.html#/",
+    "address": "9917 82 Ave NW, Edmonton, AB T6E 1W6",
+    "zone":"South Central",
+    "phoneNumber": "(780) 433-7119",
+    "googleDirectionsURL": "https://www.google.com/maps/dir//Warp+One/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x53a0220c4ff6d2a5:0x6225a9dee2c39bc8?sa=X&ved=1t:3061&ictx=111",
+    "weeklyEvents": [
+      {
+        "day": "MON",
+        "format": "PIONEER",
+        "description": "Monday Night Pioneer"
+      },
+      {
+        "day": "TUE",
+        "format": "MODERN",
+        "description": "Modern Tuesdays"
+      },
+      {
+        "day": "WED",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      },
+      {
+        "day": "THU",
+        "format": "PAUPER",
+        "description": "Pauper Thursdays"
+      },
+      {
+        "day": "FRI",
+        "format": "DRAFT",
+        "description": "Friday Night Magic (FNM)"
+      }
+    ]
+  },
+  {
+    "storeName": "Warp 3",
+    "websiteURL": "https://warpcomics.com/index.html#/",
+    "address": "2331 66 St NW Unit 329, Edmonton, AB T6K 4B5",
+    "zone":"South Edmonton",
+    "phoneNumber": "(780) 462-5767",
+    "googleDirectionsURL": "https://www.google.com/maps?sca_esv=831957950881813e&sxsrf=ADLYWIIwdaYGt4WTQRRxcvWm1G4OjCvqWA:1730503741897&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiBndhcnAgMzILEC4YgAQYxwEYrwEyBRAAGIAEMgoQABiABBgUGIcCMgoQABiABBgUGIcCMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMhoQLhiABBjHARivARiXBRjcBBjeBBjgBNgBAUi_B1D9BFjWBnABeACQAQCYAXSgAaUCqgEDMi4xuAEDyAEA-AEBmAIDoALOAcICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIcEC4YgAQYsAMYQxjHARjIAxiKBRiOBRivAdgBAcICGRAuGIAEGLADGEMYxwEYyAMYigUYrwHYAQHCAg4QABiwAxjkAhjWBNgBAcICChAjGIAEGCcYigXCAgoQABiABBhDGIoFwgIQEC4YgAQYQxjHARiKBRivAcICDhAuGIAEGMcBGI4FGK8BmAMAiAYBkAYSugYGCAEQARgIkgcBM6AHpC0&um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=Kf___68_GaBTMZAp3hzq-sJV&daddr=2331+66+St+NW+Unit+329,+Edmonton,+AB+T6K+4B5",
+    "weeklyEvents": [
+      {
+        "day": "WED",
+        "format": "DRAFT",
+        "description": "Wednesday Draft"
+      },
+      {
+        "day": "THU",
+        "format": "COMMANDER",
+        "description": "Commander Thursdays"
+      },
+      {
+        "day": "FRI",
+        "format": "MODERN",
+        "description": "Friday Modern"
+      }
+    ]
+  },
+  {
+    "storeName": "Prisma Games",
+    "websiteURL": "https://www.prismatcg.com/",
+    "address": "9919 48 Ave NW, Edmonton, AB T6E 5H5",
+    "zone":"South Edmonton",
+    "phoneNumber": "(587) 524-4263",
+    "googleDirectionsURL": "https://www.google.com/maps?sca_esv=b83ae7c870d94983&lqi=CgxtdGcgZWRtb250b25IpqWo67u4gIAIWhIQABgBIgxtdGcgZWRtb250b26SAQtob2JieV9zdG9yZaoBSAoIL20vMDRyaHoQASoHIgNtdGcoADIfEAEiG82UjKWPgbzD_-ZQDlsvsfN44CW4wsFPZ_4-WTIQEAIiDG10ZyBlZG1vbnRvbg&phdesc=RQsQMIR7kNE&vet=12ahUKEwiC97PPpryJAxV0DzQIHS7lFf8Q8UF6BAgGEFQ..i&lei=JmYlZ4LMDvSe0PEPrsrX-A8&cs=0&um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KVNBiN3eGaBTMRnOgjilKG7a&daddr=9919+48+Ave+NW,+Edmonton,+AB+T6E+5H5",
+    "weeklyEvents": [
+      {
+        "day": "THU",
+        "format": "Modern",
+        "description": "Modern Thursdays"
+      },
+      {
+        "day": "FRI",
+        "format": "STANDARD",
+        "description": "Standard"
+      },
+      {
+        "day": "SAT",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      }
+    ]
+  },
+  {
+    "storeName": "Mission: Fun & Games",
+    "websiteURL": "https://www.boardgames.ca/",
+    "address": "560 St Albert Trl, St. Albert, AB T8N 6A7",
+    "zone":"St Albert",
+    "phoneNumber": "(780) 459-1055",
+    "googleDirectionsURL": "https://www.google.com/maps?sca_esv=b83ae7c870d94983&lqi=ChVtaXNzaW9uIGZ1biBhbmQgZ2FtZXNIqYqTw-WAgIAIWjMQABABEAIQAxgAGAEYAhgDIhVtaXNzaW9uIGZ1biBhbmQgZ2FtZXMqCggCEAAQARACEAOSAQpnYW1lX3N0b3JlqgE-EAEyHxABIhuT3WdCdnuiAODEADgf4YWD71PsVVWpBtHjAEAyGRACIhVtaXNzaW9uIGZ1biBhbmQgZ2FtZXM&phdesc=4DJ_nDlfZEY&vet=12ahUKEwjfyfOnqbyJAxU4ADQIHYibEfkQ8UF6BAgHEBQ..i&lei=-GglZ9_tKriA0PEPiLfGyA8&cs=0&um=1&ie=UTF-8&fb=1&gl=ca&sa=X&geocode=KS9EZEQLJqBTMbbHA7dLh095&daddr=560+St+Albert+Trl,+St.+Albert,+AB+T8N+6A7",
+    "weeklyEvents": [
+      {
+        "day": "FRI",
+        "format": "DRAFT",
+        "description": "Draft every second Friday"
+      },
+      {
+        "day": "SUN",
+        "format": "COMMANDER",
+        "description": "Casual Commander"
+      }
+    ]
+  }
+]
