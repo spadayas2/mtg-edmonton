@@ -1,10 +1,23 @@
 import styles from "./WeeklyEventsSection.module.css";
 import { SetStateAction, useState } from "react";
 import { getFormatColourModuleClassName, FORMATS } from "../../utils/utility";
-import { WizardsStoreEvent } from "../Types/Types";
 import moment from "moment";
 import { findFormatInTags, getStoreEventData } from "../../utils/wizardsAPI";
 import StoreDetails from "../StoreDetails/StoreDetails";
+
+interface WizardsStoreEvent {
+  description: string;
+  emailAddress: string;
+  id: number;
+  organization: {
+    postalAddress: string;
+    website: string | undefined; id: number; isPremium: boolean; name: string; __typename: string 
+};
+  phoneNumber: string;
+  tags: string[];
+  title: string;
+  scheduledStartTime: string;
+}
 
 const storesData: WizardsStoreEvent[] = await getStoreEventData(
   moment().startOf("week").format("YYYY-MM-DD"),
