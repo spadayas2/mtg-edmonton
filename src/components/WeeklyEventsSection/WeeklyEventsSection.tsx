@@ -2,7 +2,7 @@ import styles from "./WeeklyEventsSection.module.css";
 import { SetStateAction, useState } from "react";
 import { getFormatColourModuleClassName, FORMATS } from "../../utils/utility";
 import moment from "moment";
-import { findFormatInTags, getStoreEventData } from "../../utils/wizardsAPI";
+import { findFormatInTags } from "../../utils/wizardsAPI";
 import StoreDetails from "../StoreDetails/StoreDetails";
 
 interface WizardsStoreEvent {
@@ -17,6 +17,35 @@ interface WizardsStoreEvent {
   tags: string[];
   title: string;
   scheduledStartTime: string;
+}
+
+async function getStoreEventData(startDate: string, endDate: string) {
+  const response = await fetch(
+    "https://api.tabletop.wizards.com/silverbeak-griffin-service/graphql",
+    {
+      headers: {
+        accept: "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "content-type": "application/json",
+        "sec-ch-ua":
+          '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "x-wotc-client":
+          "client:locator version:local_version platform:Windows/Chrome/131.0.0.0",
+        Referer: "https://locator.wizards.com/",
+      },
+      body: `{"operationName":"queryEvents","variables":{"latitude":53.5460983,"longitude":-113.4937266,"maxMeters":16093,"tags":["magic:_the_gathering"],"sort":"date","sortDirection":"Asc","startDate":"${startDate}","endDate":"${endDate}","orgs":[],"pageSize":50,"page":0},"query":"query queryEvents($latitude: Float!, $longitude: Float!, $maxMeters: maxMeters_Int_NotNull_min_1!, $tags: [String!]!, $sort: EventSearchSortField, $sortDirection: EventSearchSortDirection, $orgs: [ID!], $startDate: DateTime, $endDate: DateTime, $page: page_Int_min_0, $pageSize: pageSize_Int_min_1) {\\n  searchEvents(\\n    query: {latitude: $latitude, longitude: $longitude, maxMeters: $maxMeters, tags: $tags, sort: $sort, sortDirection: $sortDirection, orgs: $orgs, startDate: $startDate, endDate: $endDate, page: $page, pageSize: $pageSize}\\n  ) {\\n    events {\\n      id\\n      capacity\\n      description\\n      distance\\n      emailAddress\\n      hasTop8\\n      isAdHoc\\n      isOnline\\n      latitude\\n      longitude\\n      title\\n      eventTemplateId\\n      pairingType\\n      phoneNumber\\n      requiredTeamSize\\n      rulesEnforcementLevel\\n      scheduledStartTime\\n      startingTableNumber\\n      status\\n      tags\\n      timeZone\\n      cardSet {\\n        id\\n        __typename\\n      }\\n      entryFee {\\n        amount\\n        currency\\n        __typename\\n      }\\n      organization {\\n        id\\n        isPremium\\n        name\\n        __typename\\n      website\\n      postalAddress\\n}\\n      eventFormat {\\n        id\\n        __typename\\n      }\\n      __typename\\n    }\\n    pageInfo {\\n      page\\n      pageSize\\n      totalResults\\n      __typename\\n    }\\n    __typename\\n  }\\n}"}`,
+      method: "POST",
+    }
+  );
+
+  const data = await response.json();
+
+  return data.data.searchEvents.events;
 }
 
 const storesData: WizardsStoreEvent[] = await getStoreEventData(
