@@ -1,0 +1,24 @@
+.storeDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+    
+  }
+  
+  .storeDetails h2 {
+    font-family: "Protest Strike", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .storeDetails p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
