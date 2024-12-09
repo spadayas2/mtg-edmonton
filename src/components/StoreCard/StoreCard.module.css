@@ -3,7 +3,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     border: none;
-    padding: 1.5rem 1.5rem;
+    padding: 1rem 1rem;
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
     color: white;
@@ -26,4 +26,39 @@
 .directions:hover{
     background-color: #9fd4a3;
     transition: 0.1s linear;
+}
+.card {
+  border: 1px solid black;
+  box-shadow: 2px 1.5px black;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.padding {
+  padding: 1.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.storeName {
+  font-family: 'Protest Strike', sans-serif;
+  font-size: 1.7rem;
+}
+
+.storeDetails {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.flexGap{
+    display: flex;
+    gap: 1rem;
+}
+
+.width50{
+    width: 50%;
 }

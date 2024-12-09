@@ -1,37 +1,71 @@
-@import '../../index.css';
-
-.sectionContainer{
+.sectionContainer {
     display: flex;
-    justify-content: space-evenly;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.articleContainer{
-    display: flex; 
+    justify-content: space-around;
+    padding: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .articleContainer {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    width: 45%;
+    display: flex;
     flex-direction: column;
-    border: 3px solid var(--primary-color);
-    border-radius:10px;
-    padding: 3rem;
-    width:25%;
-}
-
-.iconContainer{
-    display: flex;
-    justify-content:center;
-    color:var(--primary-color);
-}
-
-.articleHeader{
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 500;
-    font-family: var(--secondary-body-fonts);
-    margin: 2.5rem;
-}
-
-.articleContent{
-    font-size: 1.3rem;
-    font-family: var(--secondary-body-fonts);
-}
+    align-items: center;
+  }
+  
+  .iconContainer {
+    margin-bottom: 1rem;
+    color: #003c62;
+  }
+  
+  .articleHeader {
+    font-family: 'Protest Strike', sans-serif;
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .articleContent {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2rem;
+    padding: 2rem;
+  }
+  
+  .articleContent ul {
+    padding: 0;
+  }
+  
+  .articleContent li {
+    margin: 0.5rem 0;
+  }
+  
+  .articleContent a {
+    color: #003c62;
+    text-decoration: none;
+  }
+  
+  .articleContent a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 780px) {
+    .articleContainer {
+      width: 100%;
+    }
+  
+    .articleHeader {
+      font-size: 1.5rem;
+    }
+  
+    .articleContent {
+      font-size: 0.9rem;
+    }
+  
+    .iconContainer {
+      font-size: 4rem;
+    }
+  }

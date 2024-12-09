@@ -23,7 +23,15 @@
 }
 
 .pauper {
-    background-color: rgb(233, 140, 156);
+  background-color: rgb(233, 140, 156);
+}
+
+.legacy {
+  background-color: rgb(96, 185, 201);
+}
+
+.other {
+  background-color: rgb(193, 207, 209);
 }
 
 .all {
@@ -55,5 +63,13 @@
 }
 
 .storePauper:hover {
-    background-color: rgb(233, 140, 156);
+  background-color: rgb(233, 140, 156);
+}
+
+.storeLegacy:hover {
+  background-color: rgb(96, 185, 201);
+}
+
+.storeOther:hover {
+  background-color: rgb(193, 207, 209);
 }

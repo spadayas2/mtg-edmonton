@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 3rem;
+}
+
+.header {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  font-family: 'Protest Strike', sans-serif;
+  font-size: 3rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  max-width: 70%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.4rem;
+}

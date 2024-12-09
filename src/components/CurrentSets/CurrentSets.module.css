@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: black;
+  color: white;
+}
+
+.setsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.set {
+  background-size: cover;
+  min-height: 34.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Protest Strike", sans-serif;
+  color: white;
+  width: 33.33%;
+}
+
+@media (max-width: 780px) {
+  .header {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .set {
+    width: calc(100% - 1rem);
+    font-size: 1.2rem;
+  }
+}

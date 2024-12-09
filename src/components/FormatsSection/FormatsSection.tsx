@@ -1,46 +1,19 @@
-import classes from "./FormatsSection.module.css";
+import styles from "./FormatsSection.module.css";
 import { getFormatColourModuleClassName, FORMATS } from "../../utils/utility";
-
-
 
 export default function FormatsSection() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "rgb(41, 41, 41)",
-        paddingBottom: "2rem",
-      }}
-    >
-      <div style={{ width: "85%" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontSize: "3rem",
-            fontFamily: "'Protest Strike', sans-serif",
-            fontWeight: "400",
-            color: "white",
-          }}
-        >
+    <div className={styles.container}>
+      <div className={styles.innerContainer}>
+        <div className={styles.header}>
           FORMATS
         </div>
-        <div
-        style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "0.7rem",
-            marginTop: "2rem",
-            flexWrap:"wrap"
-            
-          }}
-        >
+        <div className={styles.content}>
           {FORMATS.map((format) => (
-            <div className={classes.formatCard}>
+            <div key={format.format + "formatCard"} className={styles.formatCard}>
               <div
                 className={
-                  classes.formatCardTitle +
+                  styles.formatCardTitle +
                   " " +
                   getFormatColourModuleClassName(
                     format.format,
@@ -50,7 +23,7 @@ export default function FormatsSection() {
               >
                 {format.format}
               </div>
-              <div className={classes.formatCardContent}>
+              <div className={styles.formatCardContent}>
                 <div>Deck Size: {format.deckSize}</div>
                 <div>Players: {format.players}</div>
                 <div>Duration: {format.duration}</div>

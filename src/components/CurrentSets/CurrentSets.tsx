@@ -1,3 +1,6 @@
+import styles from './CurrentSets.module.css';
+
+
 const sets = [
   {
     name: "Magic: The Gathering Foundations",
@@ -21,36 +24,16 @@ const sets = [
 function CurrentSets() {
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "'Rubik', sans-serif",
-          fontSize: "2rem",
-          padding: "2rem",
-          backgroundColor: "black",
-          color: "white",
-        }}
-      >
+      <div className={styles.header}>
         <div>CURRENT SETS</div>
       </div>
-      <div style={{ display: "inline-flex", width: "100%" }}>
+      <div className={styles.setsContainer}>
         {sets.map((set) => (
           <div
             key={set.name}
+            className={styles.set}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${set.image})`,
-              backgroundSize: "cover",
-              minHeight: "34.5vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              fontSize: "2rem",
-              fontFamily: "'Protest Strike', sans-serif",
-              color: "white",
-              width: "33.33%",
             }}
           >
             {set.name}
