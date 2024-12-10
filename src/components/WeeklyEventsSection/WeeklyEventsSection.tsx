@@ -1,57 +1,10 @@
 import styles from "./WeeklyEventsSection.module.css";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { getFormatColourModuleClassName, FORMATS } from "../../utils/utility";
+import { WizardsStoreEvent } from "../Types/Types";
 import moment from "moment";
-import { findFormatInTags } from "../../utils/wizardsAPI";
+import { findFormatInTags, getStoreEventData } from "../../utils/wizardsAPI";
 import StoreDetails from "../StoreDetails/StoreDetails";
-
-interface WizardsStoreEvent {
-  description: string;
-  emailAddress: string;
-  id: number;
-  organization: {
-    postalAddress: string;
-    website: string | undefined; id: number; isPremium: boolean; name: string; __typename: string 
-};
-  phoneNumber: string;
-  tags: string[];
-  title: string;
-  scheduledStartTime: string;
-}
-
-async function getStoreEventData(startDate: string, endDate: string) {
-  const response = await fetch(
-    "https://api.tabletop.wizards.com/silverbeak-griffin-service/graphql",
-    {
-      headers: {
-        accept: "*/*",
-        "accept-language": "en-US,en;q=0.9",
-        "content-type": "application/json",
-        "sec-ch-ua":
-          '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"Windows"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-site",
-        "x-wotc-client":
-          "client:locator version:local_version platform:Windows/Chrome/131.0.0.0",
-        Referer: "https://locator.wizards.com/",
-      },
-      body: `{"operationName":"queryEvents","variables":{"latitude":53.5460983,"longitude":-113.4937266,"maxMeters":16093,"tags":["magic:_the_gathering"],"sort":"date","sortDirection":"Asc","startDate":"${startDate}","endDate":"${endDate}","orgs":[],"pageSize":50,"page":0},"query":"query queryEvents($latitude: Float!, $longitude: Float!, $maxMeters: maxMeters_Int_NotNull_min_1!, $tags: [String!]!, $sort: EventSearchSortField, $sortDirection: EventSearchSortDirection, $orgs: [ID!], $startDate: DateTime, $endDate: DateTime, $page: page_Int_min_0, $pageSize: pageSize_Int_min_1) {\\n  searchEvents(\\n    query: {latitude: $latitude, longitude: $longitude, maxMeters: $maxMeters, tags: $tags, sort: $sort, sortDirection: $sortDirection, orgs: $orgs, startDate: $startDate, endDate: $endDate, page: $page, pageSize: $pageSize}\\n  ) {\\n    events {\\n      id\\n      capacity\\n      description\\n      distance\\n      emailAddress\\n      hasTop8\\n      isAdHoc\\n      isOnline\\n      latitude\\n      longitude\\n      title\\n      eventTemplateId\\n      pairingType\\n      phoneNumber\\n      requiredTeamSize\\n      rulesEnforcementLevel\\n      scheduledStartTime\\n      startingTableNumber\\n      status\\n      tags\\n      timeZone\\n      cardSet {\\n        id\\n        __typename\\n      }\\n      entryFee {\\n        amount\\n        currency\\n        __typename\\n      }\\n      organization {\\n        id\\n        isPremium\\n        name\\n        __typename\\n      website\\n      postalAddress\\n}\\n      eventFormat {\\n        id\\n        __typename\\n      }\\n      __typename\\n    }\\n    pageInfo {\\n      page\\n      pageSize\\n      totalResults\\n      __typename\\n    }\\n    __typename\\n  }\\n}"}`,
-      method: "POST",
-    }
-  );
-
-  const data = await response.json();
-
-  return data.data.searchEvents.events;
-}
-
-const storesData: WizardsStoreEvent[] = await getStoreEventData(
-  moment().startOf("week").format("YYYY-MM-DD"),
-  moment().endOf("week").add(1).format("YYYY-MM-DD")
-);
 
 const weeklyData: {
   day: string;
@@ -68,8 +21,7 @@ const weeklyData: {
 
 const formats: string[] = FORMATS.map((format) => format.format);
 
-function populateEvents() {
-  console.log(storesData);
+function populateEvents(storesData: WizardsStoreEvent[]) {
   storesData.forEach((storeData) => {
     let format = findFormatInTags(storeData.tags);
     if (format === undefined) format = "OTHER";
@@ -95,12 +47,25 @@ function populateEvents() {
   });
 }
 
-populateEvents();
+
 
 export default function WeeklyEventsSection() {
   const [filterFormats, setFilterFormats] = useState(["COMMANDER"]);
   const [selectedStore, setSelectedStore] = useState<{ storeName: string, address: string, website: string, phoneNumber: string } | null>(null); // State to manage the selected store
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage the modal visibility
+
+
+  useEffect(() => {
+    async function fetchData() {
+      const storesData: WizardsStoreEvent[] = await getStoreEventData(
+        moment().startOf("week").format("YYYY-MM-DD"),
+        moment().endOf("week").add(1).format("YYYY-MM-DD")
+      );
+
+      populateEvents(storesData);
+    }
+    fetchData();
+  }, []);
 
 
   function filterStyle(filter: string) {
