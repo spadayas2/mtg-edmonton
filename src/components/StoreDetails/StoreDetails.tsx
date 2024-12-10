@@ -6,15 +6,24 @@ interface StoreDetailsProps {
     address: string;
     phone: string;
     website: string;
+    description?: string;
 }
 
-const StoreDetails: React.FC<StoreDetailsProps> = ({ name, address, phone, website }) => {
+const StoreDetails: React.FC<StoreDetailsProps> = ({ name, address, phone, website, description }) => {
     return (
         <div className={styles.storeDetails}>
             <h2>{name}</h2>
             <p><strong>Address:</strong> {address}</p>
             <p><strong>Phone:</strong> {phone}</p>
-            <p><strong>Website:</strong> {website}</p>
+            {description && <p><strong>Description: </strong> {description}</p>}
+            <p><a
+              href={website}
+              target="_blank"
+            >
+              <button className={styles.button + " " + styles.website}>
+                Website
+              </button>
+            </a></p>
         </div>
     );
 };

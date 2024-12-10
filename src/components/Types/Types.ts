@@ -17,12 +17,10 @@ export interface WizardsStore {
   longitude: number;
   name: string;
   postalAddress: string;
-  showEmailInSEL: boolean;
-  showInInternalSearch: boolean;
   distance: number;
   phoneNumber: string;
   website: string;
-  __typename: string;
+  description: string;
 }
 
 export interface WizardsStoreEvent {

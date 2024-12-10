@@ -15,6 +15,7 @@ interface WeeklyData {
       address: string;
       website: string;
       phoneNumber: string;
+      description: string;
     }[];
   }[];
 }
@@ -39,6 +40,7 @@ export default function WeeklyEventsSection() {
     address: string;
     website: string;
     phoneNumber: string;
+    description: string;
   } | null>(null); // State to manage the selected store
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage the modal visibility
 
@@ -72,6 +74,7 @@ export default function WeeklyEventsSection() {
                 address: storeData.organization.postalAddress,
                 phoneNumber: storeData.phoneNumber,
                 website: storeData.organization.website || "",
+                description: storeData.description
               },
             ],
           });
@@ -85,12 +88,12 @@ export default function WeeklyEventsSection() {
               address: storeData.organization.postalAddress,
               phoneNumber: storeData.phoneNumber,
               website: storeData.organization.website || "",
+              description: storeData.description
             });
           }
         }
       }
     });
-
     setWeeklyData(newData);
   }
 
@@ -114,6 +117,7 @@ export default function WeeklyEventsSection() {
       address: string;
       website: string;
       phoneNumber: string;
+      description: string;
     } | null>
   ) {
     setSelectedStore(storeData);
@@ -235,6 +239,7 @@ export default function WeeklyEventsSection() {
               website={selectedStore.website}
               address={selectedStore.address}
               phone={selectedStore.phoneNumber}
+              description={selectedStore.description}
             />
           </div>
         </div>

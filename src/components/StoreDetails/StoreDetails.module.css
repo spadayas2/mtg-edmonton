@@ -22,3 +22,23 @@
     margin: 5px 0;
   }
   
+  .button{
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    padding: 1rem 1rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: white;
+    width:100%;
+}
+
+.website{
+    background-color: #003c62;
+}
+
+.website:hover{
+  background-color: #005991;
+  transition: 0.1s linear;
+}
