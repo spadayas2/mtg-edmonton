@@ -32,11 +32,9 @@
   .articleContent {
     font-family: 'Rubik', sans-serif;
     font-size: 1.2rem;
-    text-align: center;
   }
   
   .articleContent ul {
-    list-style-type: none;
     padding: 0;
   }
   

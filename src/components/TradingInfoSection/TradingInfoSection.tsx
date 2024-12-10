@@ -11,7 +11,7 @@ export default function TradingInfoSection() {
         </div>
         <h1 className={styles.articleHeader}>Where</h1>
         <div className={styles.articleContent}>
-          <p>A few places you can trade/sell cards</p>
+          <p>A few places you can trade/sell cards:</p>
           <ul>
             <li>Local Stores</li>
             <li>Facebook Groups and Marketplace</li>
@@ -26,11 +26,11 @@ export default function TradingInfoSection() {
         </div>
         <h1 className={styles.articleHeader}>Pricing</h1>
         <div className={styles.articleContent}>
-          <p>It is recommended to research the price of your cards, you can visit websites like</p>
+          <p>It is recommended to research the price of your cards; you can visit websites like:</p>
           <a href="https://www.facetofacegames.com/" target="_blank">
               Face to Face Games (F2F)
             </a>
-            <p>Generally you will get a percentage of the card value</p>
+            . Generally, you will get a percentage of the card value
         </div>
       </article>
     </section>
