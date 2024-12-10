@@ -9,6 +9,14 @@
     margin-bottom: 16px;
 }
 
+.secondTitle{
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4rem;
+    text-shadow: 0 2px 4px black;
+    margin: 0;
+}
+
 .mtgEdmontonLogo{
     font-size: 4.5em;
     background-color: #003c62;
@@ -17,4 +25,70 @@
     border-radius: 10px;
     font-family: 'Protest Strike', sans-serif;
     color: black,
+}
+
+.heroContainer {
+  display: flex;
+  min-height: 60vh;
+  background-position: 0% 43%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.innerContainer {
+  display: flex;
+  min-width: 70%;
+  align-items: center;
+}
+
+.inlineFlex {
+  display: inline-flex;
+}
+
+.textContainer {
+  display: inline-flex;
+  text-align: left;
+  flex-direction: column;
+}
+
+.paddedText {
+  padding-left: 32px;
+  display: inline-block;
+}
+
+@media (max-width: 780px) {
+
+  .heroContainer {
+    min-height: 40vh;
+    background-position: center;
+  }
+
+  .innerContainer {
+    flex-direction: column;
+    min-width: 90%;
+  }
+
+  .paddedText {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .mtgEdmontonLogo {
+    font-size: 2.8rem;
+    margin: 1rem;
+  }
+
+  .title {
+    text-align: left;
+    margin: 1rem;
+    font-size: 2.3rem;
+  }
+
+  .secondTitle {
+    text-align: left;
+    font-size: 1.4rem;
+    margin: 1rem;
+  }
 }

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import classes from "./MainNavigation.module.css";
+import styles from "./MainNavigation.module.css";
+import { useState } from "react";
 
 const menuItems = [
   { name: "HOME", address: "/" },
@@ -9,12 +10,23 @@ const menuItems = [
 ];
 
 function MainNavigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className={classes.navBarContainer}>
+    <nav className={`${styles.navBarContainer} ${isMenuOpen ? styles.active : ''}`}>
+      <div className={styles.hamburgerMenu} onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       {menuItems.map((item) => (
         <NavLink
           key={item.name}
-          className={classes.navItem}
+          className={styles.navItem}
           to={item.address}
         >
           {item.name}

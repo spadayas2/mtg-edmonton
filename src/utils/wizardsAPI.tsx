@@ -1,4 +1,6 @@
-export async function getStoreEventData(startDate: string, endDate: string) {
+import { WizardsStoreEvent } from "../components/Types/Types";
+
+export async function getStoreEventData(startDate: string, endDate: string) : Promise<WizardsStoreEvent[]> {
   const response = await fetch(
     "https://api.tabletop.wizards.com/silverbeak-griffin-service/graphql",
     {

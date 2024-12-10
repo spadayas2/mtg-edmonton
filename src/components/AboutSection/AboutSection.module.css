@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-family: 'Protest Strike', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  max-width: 70%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .text {
+    max-width: 100%;
+    font-size: 1.2rem;
+  }
+}

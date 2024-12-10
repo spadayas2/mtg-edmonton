@@ -1,8 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(41, 41, 41);
+  padding-bottom: 2rem;
+}
+
+.innerContainer {
+  width: 85%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-family: 'Protest Strike', sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
 .formatCard {
-  width: calc(85%/5);
+  width: calc(85%/3);
   background-color: #e0e0e0;
-  border: 1px solid black;
+  border: 2px solid black;
   box-shadow: 2px 2px black;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .formatCardTitle {
@@ -46,3 +76,8 @@
     background-color: rgb(75, 165, 75);
 }
 
+@media (max-width: 780px) { 
+  .formatCard {
+    width: 100%;
+  }
+}

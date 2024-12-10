@@ -1,4 +1,4 @@
-import classes from './util.module.css'
+import classes from "./util.module.css";
 
 export const FORMATS = [
   {
@@ -50,6 +50,20 @@ export const FORMATS = [
     duration: "20 min",
     sets: "Any",
   },
+  {
+    format: "LEGACY",
+    deckSize: "60+",
+    players: "2",
+    duration: "20 min",
+    sets: "Any",
+  },
+  {
+    format: "OTHER",
+    deckSize: "?",
+    players: "?",
+    duration: "?",
+    sets: "?",
+  },
 ];
 
 export function getFormatColourModuleClassName(
@@ -74,9 +88,15 @@ export function getFormatColourModuleClassName(
   if (eventName === "MODERN")
     if (type === "store") return classes.storeModern;
     else return classes.modern;
-    if (eventName === "PAUPER")
-      if (type === "store") return classes.storePauper;
-      else return classes.pauper;
+  if (eventName === "PAUPER")
+    if (type === "store") return classes.storePauper;
+    else return classes.pauper;
+  if (eventName === "LEGACY")
+    if (type === "store") return classes.storeLegacy;
+    else return classes.legacy;
+    if (eventName === "OTHER")
+      if (type === "store") return classes.storeOther;
+      else return classes.other;
 
   return classes.storeDraft;
 }

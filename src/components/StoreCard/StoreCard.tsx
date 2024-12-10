@@ -3,7 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Store } from "../Types/Types";
 
-export default function StoreCard({ store }: { store: Store }) {
+export default function StoreCard({ store, onDetailsClick }: { store: Store, onDetailsClick: (storeData: Store) => void }) {
   return (
     <div className={styles.card}>
       <div className={styles.padding}>
@@ -42,10 +42,10 @@ export default function StoreCard({ store }: { store: Store }) {
                       <a
               className={styles.width50}
             >
-              {/* <button className={styles.button + " " + styles.directions}
+              <button className={styles.button + " " + styles.directions}
               onClick={()=>onDetailsClick(store)}>
                 Details
-              </button> */}
+              </button>
             </a>
         </div>
       </div>

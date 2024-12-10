@@ -6,10 +6,20 @@ import moment from "moment";
 import { findFormatInTags, getStoreEventData } from "../../utils/wizardsAPI";
 import StoreDetails from "../StoreDetails/StoreDetails";
 
-const weeklyData: {
+interface WeeklyData {
   day: string;
-  events: { format: string; stores: { storeName: string, address: string, website:string, phoneNumber: string }[] }[];
-}[] = [
+  events: {
+    format: string;
+    stores: {
+      storeName: string;
+      address: string;
+      website: string;
+      phoneNumber: string;
+    }[];
+  }[];
+}
+
+const initialWeeklyData: WeeklyData[] = [
   { day: "SUN", events: [] },
   { day: "MON", events: [] },
   { day: "TUE", events: [] },
@@ -21,52 +31,70 @@ const weeklyData: {
 
 const formats: string[] = FORMATS.map((format) => format.format);
 
-function populateEvents(storesData: WizardsStoreEvent[]) {
-  storesData.forEach((storeData) => {
-    let format = findFormatInTags(storeData.tags);
-    if (format === undefined) format = "OTHER";
-    const dayIndex = moment(storeData.scheduledStartTime).day();
-    const eventIndex = weeklyData[dayIndex].events.findIndex(
-      (eventData) => eventData.format === format
-    );
-    if (format !== undefined) {
-      if (eventIndex === -1) {
-        weeklyData[dayIndex].events.push({
-          format: format,
-          stores: [{ storeName: storeData.organization.name, address: storeData.organization.postalAddress, phoneNumber: storeData.phoneNumber, website: storeData.organization.website || "" }],
-        });
-      } else {
-        weeklyData[dayIndex].events[eventIndex].stores.push({
-          storeName: storeData.organization.name,
-          address: storeData.organization.postalAddress,
-          phoneNumber: storeData.phoneNumber,
-          website: storeData.organization.website || ""
-        });
-      }
-    }
-  });
-}
-
-
-
 export default function WeeklyEventsSection() {
+  const [weeklyData, setWeeklyData] = useState<WeeklyData[]>(initialWeeklyData);
   const [filterFormats, setFilterFormats] = useState(["COMMANDER"]);
-  const [selectedStore, setSelectedStore] = useState<{ storeName: string, address: string, website: string, phoneNumber: string } | null>(null); // State to manage the selected store
+  const [selectedStore, setSelectedStore] = useState<{
+    storeName: string;
+    address: string;
+    website: string;
+    phoneNumber: string;
+  } | null>(null); // State to manage the selected store
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage the modal visibility
-
 
   useEffect(() => {
     async function fetchData() {
-      const storesData: WizardsStoreEvent[] = await getStoreEventData(
+      const data = await getStoreEventData(
         moment().startOf("week").format("YYYY-MM-DD"),
         moment().endOf("week").add(1).format("YYYY-MM-DD")
       );
-
-      populateEvents(storesData);
+      console.log(data);
+      populateEvents(data);
     }
     fetchData();
   }, []);
 
+  function populateEvents(storesData: WizardsStoreEvent[]) {
+    console.log("populating events");
+    const newData: WeeklyData[] = initialWeeklyData.map(day => ({ ...day, events: [] }));
+    storesData.forEach((storeData) => {
+      let format = findFormatInTags(storeData.tags);
+      if (format === undefined) format = "OTHER";
+      const dayIndex = moment(storeData.scheduledStartTime).day();
+      const eventIndex = newData[dayIndex].events.findIndex(
+        (eventData) => eventData.format === format
+      );
+      if (format !== undefined) {
+        if (eventIndex === -1) {
+          newData[dayIndex].events.push({
+            format: format,
+            stores: [
+              {
+                storeName: storeData.organization.name,
+                address: storeData.organization.postalAddress,
+                phoneNumber: storeData.phoneNumber,
+                website: storeData.organization.website || "",
+              },
+            ],
+          });
+        } else {
+          const storeExists = newData[dayIndex].events[eventIndex].stores.some(
+            (store) => store.storeName === storeData.organization.name
+          );
+          if (!storeExists) {
+            newData[dayIndex].events[eventIndex].stores.push({
+              storeName: storeData.organization.name,
+              address: storeData.organization.postalAddress,
+              phoneNumber: storeData.phoneNumber,
+              website: storeData.organization.website || "",
+            });
+          }
+        }
+      }
+    });
+
+    setWeeklyData(newData);
+  }
 
   function filterStyle(filter: string) {
     if (filterFormats.includes(filter)) {
@@ -82,7 +110,14 @@ export default function WeeklyEventsSection() {
     }
   }
 
-  function handleDetailsClick(storeData: SetStateAction<{ storeName: string; address: string; website: string; phoneNumber: string; } | null>) {
+  function handleDetailsClick(
+    storeData: SetStateAction<{
+      storeName: string;
+      address: string;
+      website: string;
+      phoneNumber: string;
+    } | null>
+  ) {
     setSelectedStore(storeData);
     setIsModalOpen(true);
   }
@@ -141,51 +176,51 @@ export default function WeeklyEventsSection() {
                   </p>
                 </div>
                 <div key={data.day + "cell"} className={styles.cell}>
-                {data.events.map((storeEvent, index) => (
-                  <div
-                    key={data.day + storeEvent.format + index}
-                    className={styles.weeklyFormat}
-                  >
+                  {data.events.map((storeEvent, index) => (
                     <div
-                      style={{
-                        display: filterFormats.includes(storeEvent.format)
-                          ? ""
-                          : "none",
-                      }}
+                      key={data.day + storeEvent.format + index}
+                      className={styles.weeklyFormat}
                     >
                       <div
-                        className={
-                          styles.formatCard +
-                          " " +
-                          getFormatColourModuleClassName(
-                            storeEvent.format,
-                            "title"
-                          )
-                        }
+                        style={{
+                          display: filterFormats.includes(storeEvent.format)
+                            ? ""
+                            : "none",
+                        }}
                       >
-                        {storeEvent.format}
-                      </div>
-                      {storeEvent.stores.map((store) => (
                         <div
                           className={
-                            styles.storeCard +
+                            styles.formatCard +
                             " " +
                             getFormatColourModuleClassName(
                               storeEvent.format,
-                              "store"
+                              "title"
                             )
                           }
-                          onClick={() => {
-                            handleDetailsClick(store)
-                          }}
                         >
-                          {store.storeName}
+                          {storeEvent.format}
                         </div>
-                      ))}
+                        {storeEvent.stores.map((store) => (
+                          <div
+                            className={
+                              styles.storeCard +
+                              " " +
+                              getFormatColourModuleClassName(
+                                storeEvent.format,
+                                "store"
+                              )
+                            }
+                            onClick={() => {
+                              handleDetailsClick(store);
+                            }}
+                          >
+                            {store.storeName}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

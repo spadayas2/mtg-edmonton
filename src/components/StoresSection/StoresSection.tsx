@@ -1,110 +1,147 @@
 import StoreCard from "../StoreCard/StoreCard";
-import data from "../../data/storeData.json";
-import classes from "./StoresSection.module.css";
-import { useState } from "react";
+import styles from "./StoresSection.module.css";
+import { useEffect, useState } from "react";
+import {
+  APIProvider,
+  Map,
+  Marker,
+  InfoWindow
+} from "@vis.gl/react-google-maps";
+import { getAllStoreInfo } from "../../utils/wizardsAPI";
+import StoreDetails from "../StoreDetails/StoreDetails";
 
-const sortedStoreData = data.sort((store1, store2) => {
-  if (store1.storeName > store2.storeName) return 1;
-  if (store1.storeName < store2.storeName) return -1;
-  return 0;
-});
 
-const zones = sortedStoreData
-  .map((store) => store.zone)
-  .filter((value, index, self) => self.indexOf(value) === index)
-  .sort();
 
 export default function StoresSection() {
-  const [zoneFilters, setZoneFilters] = useState(["Central"]);
-
-  function filterStyle(zone: string) {
-    if (zoneFilters.includes(zone)) {
-      return classes.zoneFilterButton + " " + classes.activeFilter;
-    } else return classes.zoneFilterButton;
+  const [storesInfoData, setStoresInfoData] = useState([]);
+  const [showInfoWindow, setShowInfoWindow] = useState<boolean[]>([]);
+  interface Store {
+    storeName: string;
+    websiteURL: string;
+    address: string;
+    phoneNumber: string;
   }
 
-  function filterZoneButton(filter: string) {
-    if (zoneFilters.includes(filter)) {
-      setZoneFilters(zoneFilters.filter((zone) => zone !== filter));
-    } else {
-      setZoneFilters((prevState) => [...prevState, filter]);
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null); // State to manage the selected store
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage the modal visibility
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getAllStoreInfo();
+      setStoresInfoData(data);
+      setShowInfoWindow(Array(data.length).fill(false));
     }
+    fetchData();
+  }, []);
+
+  function toggleInfoWindow(index: number) {
+    setShowInfoWindow((prevState) => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  }
+
+  function handleDetailsClick(storeData: Store) {
+    setSelectedStore(storeData);
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+    setSelectedStore(null);
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "lightgray",
-        paddingTop: "3rem",
-        paddingBottom: "3rem",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          fontFamily: "'Protest Strike', sans-serif",
-          fontSize: "3rem",
-        }}
-      >
-        STORES
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "0.7rem",
-          marginTop: "2rem",
-          flexWrap: "wrap",
-        }}
-      >
-        {zones.map((zone) => (
-          <button
-            className={filterStyle(zone)}
-            onClick={() => filterZoneButton(zone)}
+    <div className={styles.container}>
+      <div className={styles.header}>STORES</div>
+      <div className={styles.justifyCenter}>
+        <div className={styles.storeListContainer}>
+          <ul
           >
-            {zone.toUpperCase()}
-          </button>
-        ))}
+            {storesInfoData.map(
+              (storeData: {
+                name: string;
+                website: string;
+                postalAddress: string;
+                phoneNumber: string;
+              }) => (
+                <li key={storeData.name} style={{ marginRight: "2px" }}>
+                  <StoreCard
+                    store={{
+                      storeName: storeData.name,
+                      websiteURL: storeData.website,
+                      address: storeData.postalAddress,
+                      phoneNumber: storeData.phoneNumber,
+                    }}
+                    onDetailsClick={handleDetailsClick}
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+        <div className={styles.mapContainer}>
+          <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
+            <Map
+            className={styles.map}
+              defaultCenter={{ lat: 53.5266805, lng: -113.4927372 }}
+              defaultZoom={10.5}
+              gestureHandling={"greedy"}
+              disableDefaultUI={false}
+            >
+              {storesInfoData.map(
+                (
+                  store: {
+                    name: string;
+                    postalAddress: string;
+                    latitude: number;
+                    longitude: number;
+                  },
+                  index: number
+                ) => (
+                  <>
+                    <Marker
+                    
+                      key={store.name}
+                      position={{ lat: store.latitude, lng: store.longitude }}
+                      onClick={() => toggleInfoWindow(index)}
+                    />
+
+                    {showInfoWindow[index] && (
+                      <InfoWindow
+                      headerContent={<div className={styles.infoHeader}>{store.name}</div>}
+                        position={{ lat: store.latitude, lng: store.longitude }}
+                        onClose={() => toggleInfoWindow(index)}
+                      >
+                        <div>
+                          <div>{store.postalAddress}</div>
+                        </div>
+                        
+                      </InfoWindow>
+                    )}
+                  </>
+                )
+              )}
+            </Map>
+          </APIProvider>
+        </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "1.5rem",
-          gap: "1rem",
-        }}
-      >
-        <button
-          className={classes.zoneFilterButton}
-          onClick={() => setZoneFilters([...zones])}
-        >
-          ALL
-        </button>
-        <button
-          className={classes.zoneFilterButton}
-          onClick={() => setZoneFilters([])}
-        >
-          CLEAR
-        </button>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          padding: "0.5rem",
-          flexWrap: "wrap",
-          marginTop: "2rem",
-          gap:"1rem"
-        }}
-      >
-        {sortedStoreData
-          .filter((store) => zoneFilters.includes(store.zone))
-          .map((storeData) => (
-            <div style={{ width: "calc(100%/3.1)" }}>
-              <StoreCard store={storeData} />
-            </div>
-          ))}
-      </div>
+      {isModalOpen && selectedStore && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <span className={styles.closeButton} onClick={closeModal}>
+              &times;
+            </span>
+            <StoreDetails
+              name={selectedStore.storeName}
+              website={selectedStore.websiteURL}
+              address={selectedStore.address}
+              phone={selectedStore.phoneNumber}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

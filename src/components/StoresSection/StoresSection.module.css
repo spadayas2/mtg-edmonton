@@ -1,15 +1,132 @@
-.zoneFilterButton{
-    border-bottom: 1px solid black;
-    align-items: center;
-    font-size: 1.5rem;
-    font-family: "Protest Strike", sans-serif;
-    width:calc(65%/5);
+.activeFilter {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  background-color: lightgray;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-family: "Protest Strike", sans-serif;
+  font-size: 3rem;
+}
+
+.infoHeader{
+  font-family: "Protest Strike", sans-serif;
+  font-size: 1rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.storeListContainer {
+  /* display: flex;
     padding: 0.5rem;
-    cursor: pointer;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    gap: 1rem; */
+  width: 40%;
+}
+
+.storeListContainer ul {
+  padding: 0;
+  height: 60vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  list-style-type: none;
+}
+
+.mapContainer{
+  width: 50%;
+}
+
+.map{
+  width: 100%;
+  height: 60vh;
+  border: 1px solid black;
+  z-index: 0;
+}
+
+.justifyCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Remove scroll bar */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: auto; /* Adjust width based on content */
+  max-width: 90%; /* Ensure it doesn't exceed the viewport width */
+  max-height: 90%; /* Ensure it doesn't exceed the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content is too large */
+  overflow-x: hidden; /* Remove horizontal scroll bar */
+  position: relative;
 }
 
 
-.activeFilter{
-    background-color: black;
-    color: white;
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: black;
+  text-decoration: none;
+}
+
+@media (max-width: 780px) {
+  .storeListContainer{
+    width: 100%;
+  }
+
+  .mapContainer{
+    width: 100%;
+  }   
+
+  .justifyCenter{
+    flex-direction: column;
+  }
+
 }
