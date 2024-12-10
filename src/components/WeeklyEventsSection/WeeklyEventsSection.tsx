@@ -48,14 +48,12 @@ export default function WeeklyEventsSection() {
         moment().startOf("week").format("YYYY-MM-DD"),
         moment().endOf("week").add(1).format("YYYY-MM-DD")
       );
-      console.log(data);
       populateEvents(data);
     }
     fetchData();
   }, []);
 
   function populateEvents(storesData: WizardsStoreEvent[]) {
-    console.log("populating events");
     const newData: WeeklyData[] = initialWeeklyData.map(day => ({ ...day, events: [] }));
     storesData.forEach((storeData) => {
       let format = findFormatInTags(storeData.tags);

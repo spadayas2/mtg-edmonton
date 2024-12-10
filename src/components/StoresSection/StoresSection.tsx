@@ -82,7 +82,7 @@ export default function StoresSection() {
           </ul>
         </div>
         <div className={styles.mapContainer}>
-          <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
+          <APIProvider apiKey="AIzaSyA2EOgQ5G61Z-y7tHHldUJCbls8v4XF9Ag">
             <Map
             className={styles.map}
               defaultCenter={{ lat: 53.5266805, lng: -113.4927372 }}
